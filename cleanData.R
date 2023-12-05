@@ -1,10 +1,10 @@
 ################################ Cleaning Data ################################
 
-library(dplyr)
-library(tidyverse)
-library(readxl)
+if (!require(pacman)) install.packages(pacman)
+pacman::p_load(dplyr, tidyverse,readxl) # Add other packages here if they are needed
+theme_set(theme_minimal())
 
-setwd("/Users/ianmayralboyle/Desktop/DCS211/Final") # Change to match personal path
+setwd("/Users/ianmayralboyle/Desktop/DCS211/DCS211-IPO-Final-Project") # Change to match personal path
 ipo_raw <- read.csv("ipo_raw.csv")
 sp_raw <- read_xlsx("spx.xlsx")
 View(ipo_raw)
