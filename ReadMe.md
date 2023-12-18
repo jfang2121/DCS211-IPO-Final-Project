@@ -82,14 +82,14 @@ Open RStudio. In the console, type the following commands, pressing Enter after 
 ### Execute programs
 Make sure all libraries are installed.
 
-#### Global IPO Market visualizations in R
+#### Global IPO market visualizations in R
 - Program(s): Timeseries.R, Heatmap.R, Heatmap_percentiles.R, Piechart.R
 - Data: ipo_raw.xlsx (for global IPO data)
 - Open the R files in RStudio; execute the code: the files will generate the respective visualizations.
 
 *Notes: You will need to change the file path(s) in the program to the local path your data file is in.*
 
-#### Global IPO Market visualizations in Python (Interactive Map)
+#### Global IPO market visualization in Python (interactive map)
 - Program(s): dcs211_map_plotting.py
 - Data: ipo_raw.xlsx (for global IPO data)
 - Open the Python file in an interpreter; execute the code. It will generate an interactive world map with the total IPO volume (the sum of all the individual offer sizes) for each available country in the dataset. 
