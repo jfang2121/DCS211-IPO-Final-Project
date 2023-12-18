@@ -1,5 +1,6 @@
 import yfinance as yf
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Set the S&P 500 stock tickers to fetch
 stocks = ['^SPX', # S&P 500
@@ -38,3 +39,19 @@ combined_data = combined_data.dropna(how='any')
 
 # Export the combined data to CSV
 combined_data.to_csv('/Users/Ximena/Desktop/DCS211/spx.csv')
+
+
+# Visualization
+# Load the dataset
+data = pd.read_csv('/Users/Ximena/Desktop/DCS211/spx.csv', index_col='Date', parse_dates=True)
+
+# Plot the time series
+plt.figure(figsize=(10,6))
+for column in data.columns:
+    plt.plot(data.index, data[column], label=column)
+
+plt.xlabel('Date')
+plt.ylabel('Adjusted Close')
+plt.title('Monthly Returns of S&P 500 Sector Indices')
+plt.legend()
+plt.show()
