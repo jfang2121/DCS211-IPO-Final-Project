@@ -119,14 +119,14 @@ Make sure all libraries are installed.
 *Notes: You will need to change the file path(s) in the program to the local path your data files are in.*
 
 #### Regressions in R
-- Program(s): cleanData.R, regressions.html
+- Program(s): cleanData.R
 - Data: ipo_raw.xlsx (for global IPO data), ifs_vf.xlsx (for macroeconomic data)
 - Open the R files in RStudio; execute the code. It will:
 1. clean the IPO raw data to match with the available macroeconomic data;
 2. merge the IPO dataset with the macroeconomic dataset;
 3. generate a binary variable that takes on 1 for positive closing prices, and 0 for negative ones;
 4. calculate the IPO pop rates by country by month and transform the data into a monthly panel dataset by country;
-5. run OLS panel data regressions and generate regression tables;
+5. run OLS panel data regressions and generate a regression table as an HTML file;
 6. plot IPO pop rates with each macroeconomic factor.
 
 *Notes: You will need to change the file path(s) in the program to the local path your data files are in.*
