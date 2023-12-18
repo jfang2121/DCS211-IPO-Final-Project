@@ -8,7 +8,7 @@ We aim to visualize the dynamic global Initial Public Offerings (IPO) market in 
 ### Global IPO Market
 The IPO data for this study was sourced from Bloomberg’s Global Initial Public Offerings (IPO) database, which provides comprehensive daily information on IPO transactions. The timeframe selected for analysis spans from January 1st, 2000 to October 31st, 2023. 
 
-Our visualization includes 47 countries/regions in total, accounting for over 95% of the global IPO market, and our regression analysis covers 31 countries that represent over 90% of the market, given the availability of our macroeconomic data. 
+Our visualization includes 47 countries/regions in total, accounting for over 95% of the global IPO market, and our regression analysis covers 31 countries that represent over 90% of the market, given the availability of the selected macroeconomic factors. 
 
 ### Country- and Time-specific Macroeconomic Factors
 To align with the scope of this study, various (monthly) macroeconomic variables have been chosen, some of which are identified as most relevant in the related literature. These include 
@@ -16,11 +16,20 @@ To align with the scope of this study, various (monthly) macroeconomic variables
 2. unemployment rate (UE) as a proxy for the real status of the economy,
 3. Monetary policy-related interest rate or short-term interest rate (STIR), indicative of the country-specific monetary policy stance, 
 4. government bonds yield or long-term interest rate (LTIR), reflecting long-term financing costs in the local debt market, 
-5. S&P 500 index (SP) as measures of overall stock market performance, and 
+5. S&P 500 index (SP) and S&P 500 Industry Index (SPI), as measures of overall stock market performance and industry-specific stock market returns, and
 6. market volatility index (VIX) as a proxy for investment risk.
 
-### Methods 
-#### Libraries needed
+## Methods 
+### Libraries needed
+#### Python
+- yfinance: package needed for scraping the S&P 500 index monthly returns
+- pandas
+#### R
+
+### Visualization 
+- Time Series: offer size ($mm USD) for global IPO activities across time
+- Heatmap: offer size ($mm USD) for global IPO activities across time
+- Pie Chart: offer size ($mm USD) for the global IPO activities by sectors
 
 All non-default Python and/or R libraries needed.
 Instructions for installing those libraries.
