@@ -40,6 +40,7 @@ To align with the scope of this study, various (monthly) macroeconomic variables
 ### Regressions
 - $y_it$: monthly IPO pop rates by country, defined by the percentage of offerings with a positive closing price for a specific country in a specific month
 - $x_it$: inflation (CPI), unemployment rate, short-term interest rate, and long-term interest rate for a specific country in a specific month
+
 *Notes: all variables are transformed to their 1st difference to ensure the stationarity of the variables.*
 
 ## Instructions
@@ -66,4 +67,5 @@ Make sure all libraries are installed.
 - Program: spx.py
 - File: no file needed
 - Open the program in an interpreter; execute the code: it will scrape all the S&P stock indices' monthly returns, write them into a CSV file, and create a time series plot for all of them.
+
 *Notes: You will need to change the existing file path to the local path you want the CSV file to be written into.*
