@@ -119,7 +119,7 @@ Make sure all libraries are installed.
 *Notes: You will need to change the file path(s) in the program to the local path your data files are in.*
 
 #### Regressions in R
-- Program(s): cleanData.R
+- Program(s): cleanData.R, regressions.html
 - Data: ipo_raw.xlsx (for global IPO data), ifs_vf.xlsx (for macroeconomic data)
 - Open the R files in RStudio; execute the code. It will:
 1. clean the IPO raw data to match with the available macroeconomic data;
