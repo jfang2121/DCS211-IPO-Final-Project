@@ -32,6 +32,9 @@ To align with the scope of this study, various (monthly) macroeconomic variables
 - lubridate: for manipulating date-time data
 - dplyr: part of the tidyverse, for data manipulation
 - readxl: for reading Excel files
+- pacman: for loading multiple packages at once or installing missing packages on the fly
+- string: for handling character-based data
+- broom: for turning model objects into tidy data frames
 
 ### Visualizations
 - Time Series: offer size ($mm USD) for global IPO activities across time; S&P 500 indices performance across industry categories across time
@@ -100,7 +103,7 @@ Make sure all libraries are installed.
 *Notes: You will need to change the file path(s) in the program to the local path your data files are in.*
 
 #### Regressions in R
-- Program(s):
+- Program(s): cleanData.R
 - Data: ipo_raw.xlsx (for global IPO data), ifs_vf.xlsx (for macroeconomic data)
 - Open the R files in RStudio; execute the code. It will:
 1. clean the IPO raw data to match with the available macroeconomic data;
