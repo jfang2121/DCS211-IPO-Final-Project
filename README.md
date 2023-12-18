@@ -59,7 +59,12 @@ Open RStudio. In the console, type the following commands, pressing Enter after 
 ### Execute programs
 Make sure all libraries are installed.
 #### Global IPO Market visualizations
+- Program: 
+- File: ipo_raw.xlsx
+- 
 
 #### S&P 500 (industry) returns scraping & visualization
-Open "spx.py" in an interpreter; execute the code, it will scrape all the S&P stock indices' monthly returns, write them into a CSV file, and create a time series plot for all of them.
+- Program: spx.py
+- File: no file needed
+- Open the program in an interpreter; execute the code: it will scrape all the S&P stock indices' monthly returns, write them into a CSV file, and create a time series plot for all of them.
 *Notes: You will need to change the existing file path to the local path you want the CSV file to be written into.*
