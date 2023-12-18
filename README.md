@@ -60,12 +60,26 @@ Open RStudio. In the console, type the following commands, pressing Enter after 
 ### Execute programs
 Make sure all libraries are installed.
 #### Global IPO Market visualizations
-- Program: 
-- File: ipo_raw.xlsx
-- 
+- Program(s): Timeseries.R, Heatmap.R, Heatmap_percentiles.R, Piechart.R
+- Data: ipo_raw.xlsx (for global IPO data)
+- Open the R files in RStudio; execute the code: the files will generate the respective visualizations
+
+*Notes: You will need to change the existing file path to the local path your data file is in.*
+
 #### S&P 500 (industry) returns scraping & visualization
-- Program: spx.py
-- File: no file needed
-- Open the program in an interpreter; execute the code: it will scrape all the S&P stock indices' monthly returns, write them into a CSV file, and create a time series plot for all of them.
+- Program(s): spx.py
+- Data: no file needed
+- Open the Python file in an interpreter; execute the code: it will scrape all the S&P stock indices' monthly returns, write them into a CSV file, and create a time series plot for all of them.
 
 *Notes: You will need to change the existing file path to the local path you want the CSV file to be written into.*
+
+#### Regressions
+- Program(s):: 
+- Data: ipo_raw.xlsx (for global IPO data), ifs_vf.xlsx (for macroeconomic data)
+- Open the Python file in an interpreter; execute the code. It will:
+1. clean the IPO raw data to match with the available macroeconomic data;
+2. merge the IPO dataset with the macroeconomic dataset;
+3. transform the raw data into a panel dataset;
+4. run regressions and generate regression tables.
+
+*Notes: You will need to change the existing file path to the local path your data files are in.*
