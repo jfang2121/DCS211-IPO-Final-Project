@@ -62,7 +62,6 @@ Make sure all libraries are installed.
 - Program: 
 - File: ipo_raw.xlsx
 - 
-
 #### S&P 500 (industry) returns scraping & visualization
 - Program: spx.py
 - File: no file needed
