@@ -2,7 +2,7 @@
 #### By Ian, Jing, Sakina, Xinyi
 
 ## Goal 
-We aim to visualize the dynamic global Initial Public Offerings (IPO) market in the 21st century and examine the influence of macroeconomic factors on the success of IPO activities from 2000 to 2023, a period marked by significant global events like the 2008 financial crisis and the COVID-19 pandemic. Employing Ordinary Least Squares (OLS) regressions and incorporating a range of macroeconomic variables, this project explores how economic indicators such as inflation, unemployment rates, interest rates, stock market performance, and market volatility impact IPO pop rates, the rates of having a positive closing price, across 31 countries, accounting for over 90% of the global IPO market. 
+We aim to visualize the dynamic global Initial Public Offerings (IPO) market in the 21st century and examine the influence of macroeconomic factors on the success of IPO activities from 2000 to 2023, a period marked by significant global events like the 2008 financial crisis and the COVID-19 pandemic. Employing Ordinary Least Squares (OLS) regressions and incorporating a range of macroeconomic variables, this project explores how economic indicators such as inflation, unemployment rates, and interest rates impact IPO pop rates, the rates of having a positive closing price. 
 
 ## Scope
 ### Global IPO Market
@@ -79,7 +79,8 @@ Make sure all libraries are installed.
 - Open the Python file in an interpreter; execute the code. It will:
 1. clean the IPO raw data to match with the available macroeconomic data;
 2. merge the IPO dataset with the macroeconomic dataset;
-3. transform the raw data into a panel dataset;
-4. run regressions and generate regression tables.
+3. generate a binary variable that takes on 1 for positive closing prices, and 0 for negative ones;
+4. calculate the IPO pop rates by country by month and transform the data into a monthly panel dataset by country;
+5. run regressions and generate regression tables.
 
 *Notes: You will need to change the file path(s) in the program to the local path your data files are in.*
