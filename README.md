@@ -74,7 +74,7 @@ Make sure all libraries are installed.
 *Notes: You will need to change the file path(s) in the program to the local path you want the CSV file to be written into.*
 
 #### Regressions
-- Program(s):: 
+- Program(s):
 - Data: ipo_raw.xlsx (for global IPO data), ifs_vf.xlsx (for macroeconomic data)
 - Open the Python file in an interpreter; execute the code. It will:
 1. clean the IPO raw data to match with the available macroeconomic data;
