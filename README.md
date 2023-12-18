@@ -22,32 +22,44 @@ To align with the scope of this study, various (monthly) macroeconomic variables
 ## Methods 
 ### Libraries needed
 #### Python
-- yfinance: package for scraping the S&P 500 index monthly returns
-- pandas: package for manipulating the datasets
-- matplotlib: package for visualization
+- yfinance: for scraping the S&P 500 index monthly returns
+- pandas: for manipulating datasets
+- matplotlib: for data visualizations
 #### R
-- xxx
+- ggplot2: for data visualizations
+- readr: part of the tidyverse, for reading CSV files
+- lubridate: for manipulating date-time data
+- dplyr: part of the tidyverse, for data manipulation
+- readxl: for reading Excel files
 
-### Visualization 
+### Visualizations
 - Time Series: offer size ($mm USD) for global IPO activities across time; S&P 500 indices performance across industry categories across time
-- Heatmap: offer size ($mm USD) for global IPO activities across countries across time
+- Heatmap: offer size ($mm USD) for global IPO activities across countries across time (by percentiles)
 - Pie Chart: offer size ($mm USD) for the global IPO activities by sectors
 
 ### Regressions
 - $y_it$: monthly IPO pop rates by country, defined by the percentage of offerings with a positive closing price for a specific country in a specific month
 - $x_it$: inflation (CPI), unemployment rate, short-term interest rate, and long-term interest rate for a specific country in a specific month
-Notes: all variables are transformed into their 1st difference to ensure the stationarity of the variables.
+*Notes: all variables are transformed to their 1st difference to ensure the stationarity of the variables.*
 
+## Instructions
+### Install libraries
+#### Python
+On Windows, use Command Prompt or PowerShell; on macOS or Linux, use the Terminal. Type the following commands, pressing Enter after each line:
+- pip install yfinance
+- pip install pandas
+- pip install matplotlib
+#### R
+Open RStudio. In the console, type the following commands, pressing Enter after each line:
+- install.packages("ggplot2")
+- install.packages("readr")
+- install.packages("lubridate")
+- install.packages("dplyr")
+- install.packages("readxl")
+### Execute programs
+Make sure all libraries are installed.
+#### Global IPO Market visualizations
 
-
-Instructions for installing those libraries.
-Clear and detailed instructions for how to execute your software.
-
-Steps:
-1. Visualization - create heatmaps for total offer size around the world
-2. Other visualizations
-3. clean the data - filter out columns for regression
-4. After cleaning the data - Visualization (box plot - inflation and percentage of IPO pop)
-5. Multivariate regression:
-   - y: Offer to first close
-   - x: S&P, cpi, unemployment rate
+#### S&P 500 (industry) returns scraping & visualization
+Open "spx.py" in an interpreter; execute the code, it will scrape all the S&P stock indices' monthly returns, write them into a CSV file, and create a time series plot for all of them.
+*Notes: You will need to change the existing file path to the local path you want the CSV file to be written into.*
