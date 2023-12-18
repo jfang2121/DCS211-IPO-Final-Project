@@ -26,6 +26,12 @@ To align with the scope of this study, various (monthly) macroeconomic variables
 - yfinance: for scraping the S&P 500 index monthly returns
 - pandas: for manipulating datasets
 - matplotlib: for data visualizations
+- geopandas: for working with geospatial data
+- plotly: for create interactive graphs 
+- pycountry: for accessing ISO-standardized country, language, and currency data
+- numpy: for scientific computing 
+- statsmodels: for statistical modeling
+- linearmodels: for estimating linear models
 #### R
 - ggplot2: for data visualizations
 - readr: part of the tidyverse, for reading CSV files
@@ -55,6 +61,13 @@ On Windows, use Command Prompt or PowerShell; on macOS or Linux, use the Termina
 - pip install yfinance
 - pip install pandas
 - pip install matplotlib
+- pip install geopandas
+- pip install plotly
+- pip install pycountry
+- pip install numpy
+- pip install statsmodels
+- pip install linearmodels
+
 #### R
 Open RStudio. In the console, type the following commands, pressing Enter after each line:
 - install.packages("ggplot2")
@@ -62,6 +75,9 @@ Open RStudio. In the console, type the following commands, pressing Enter after 
 - install.packages("lubridate")
 - install.packages("dplyr")
 - install.packages("readxl")
+- install.packages("pacman")
+- install.packages("string")
+- install.packages("broom")
 
 ### Execute programs
 Make sure all libraries are installed.
