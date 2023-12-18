@@ -96,7 +96,7 @@ Make sure all libraries are installed.
 
 *Notes: You will need to change the file path(s) in the program to the local path your data file is in.*
 
-#### S&P 500 (industry) returns scraping & visualization
+#### S&P 500 (industry) indices returns scraping & visualization
 - Program(s): spx.py
 - Data: no file needed
 - Open the Python file in an interpreter; execute the code. It will:
