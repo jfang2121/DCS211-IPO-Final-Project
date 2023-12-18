@@ -1,13 +1,13 @@
-################################ Cleaning Data ################################
+################################## Clean Data ##################################
 
 if (!require(pacman)) install.packages(pacman)
-pacman::p_load(dplyr, tidyverse,readxl) # Add other packages here if they are needed
+pacman::p_load(dplyr, tidyverse,readxl, lubridate, stringi, broom)
 theme_set(theme_minimal())
 
 setwd("/Users/ianmayralboyle/Desktop/DCS211/DCS211-IPO-Final-Project") # Change to match personal path
 ipo_raw <- read.csv("ipo_raw.csv")
 sp_raw <- read_xlsx("spx.xlsx")
-# View(ipo_raw)
+macro_raw <- read_xlsx("ifs_vf.xlsx")
 
 ipo <- ipo_raw %>% 
   rename(country = Country.Region.Full.Name) %>% 
@@ -32,21 +32,99 @@ ipo <- ipo_raw %>%
          first_month = as.numeric(first_month)) %>% 
   mutate(pop_day = ifelse(first_day > 0, 1, 0), 
          pop_month = ifelse(first_month > 0, 1, 0))
-View(ipo)
+ipo$date <- mdy(ipo$date)
+ipo$date <- format(ipo$date, "%Ym%m")
+ipo$date <- as.character(ipo$date)
+ipo$date <- gsub("01$", "1", ipo$date)
+ipo$date <- gsub("02$", "2", ipo$date)
+ipo$date <- gsub("03$", "3", ipo$date)
+ipo$date <- gsub("04$", "4", ipo$date)
+ipo$date <- gsub("05$", "5", ipo$date)
+ipo$date <- gsub("06$", "6", ipo$date)
+ipo$date <- gsub("07$", "7", ipo$date)
+ipo$date <- gsub("08$", "8", ipo$date)
+ipo$date <- gsub("09$", "9", ipo$date)
+ipo <- ipo %>% 
+  # filter(country == "UNITED STATES") %>% 
+  group_by(date, country) %>% 
+  summarize(mean_pop = mean(pop_day, na.rm = TRUE)) %>% 
+  rename(month = date)
 
 sp <- sp_raw %>% 
+  rename(month = mon) %>% 
+  mutate(country = "UNITED STATES")
+
+macro <- macro_raw %>% 
   rename(month = mon)
+macro$country <- toupper(macro$country)
 
-########################### Haven't figured out yet ###########################
+################################## Merge Data ##################################
 
-sp$month <- strptime(as.character(sp$month), "%Ym%-d")
+final_data <- merge(ipo, macro)
 
-sp$newdate <- format(sp$month, "%Y/%m/%d")
+################################## Regression ##################################
 
-as.character(sp$month)[1]
+mean_pop_ir_lt <- lm(mean_pop ~ ir_lt, subset(final_data, ir_lt <= 10))
+tidy(mean_pop_ir_lt)
 
-sp %>% 
-  mutate(newdate)
+mean_pop_ir_st <- lm(mean_pop ~ ir_st, subset(final_data, ir_st <= 10)) 
+tidy(mean_pop_ir_st)
 
-view(sp)
+mean_pop_ip <- lm(mean_pop ~ ip, final_data) 
+tidy(mean_pop_ip)
 
+mean_pop_ue <- lm(mean_pop ~ ue, final_data) 
+tidy(mean_pop_ue)
+
+mean_pop_cpi <- lm(mean_pop ~ cpi, subset(final_data, cpi <= 250)) 
+tidy(mean_pop_cpi)
+
+regressions <- list(mean_pop_ir_lt, mean_pop_ir_st, mean_pop_ip, mean_pop_ue, mean_pop_cpi)
+stargazer(regressions, type = 'text', out = 'regressions.html', 
+          dep.var.labels = "Mean 'Pop' Percentage", title = "Results", 
+          covariate.labels=c("Long Term Interest Rates", 
+                             "Short Term Interest Rates", 
+                             "Industrial Production", "Unemployment", 
+                             "Inflation (CPI)"), align = TRUE)
+
+#################################### Tables ####################################
+
+table_mean_pop_ir_lt <- ggplot(subset(final_data, ir_lt <= 10), 
+                               mapping = aes(y = mean_pop, x = ir_lt)) +
+  geom_point() +
+  geom_smooth(method = lm, se = F) +
+  ggtitle("IPO 'Pops' and Long Term Interest Rates") +
+  xlab("Long Term Interest Rates") + ylab("IPO 'Pop' Percentage")
+table_mean_pop_ir_lt
+
+table_mean_pop_ir_st <- ggplot(subset(final_data, ir_st <= 10), 
+                               mapping = aes(y = mean_pop, x = ir_st)) +
+  geom_point() +
+  geom_smooth(method = lm, se = F) +
+  ggtitle("IPO 'Pops' and Short Term Interest Rates") +
+  xlab("Short Term Interest Rates") + ylab("IPO 'Pop' Percentage")
+table_mean_pop_ir_st
+
+table_mean_pop_ip <- ggplot(final_data, 
+                               mapping = aes(y = mean_pop, x = ip)) +
+  geom_point() +
+  geom_smooth(method = lm, se = F) +
+  ggtitle("IPO 'Pops' and Industrial Production") +
+  xlab("Industrial Production") + ylab("IPO 'Pop' Percentage")
+table_mean_pop_ip
+
+table_mean_pop_ue <- ggplot(final_data, 
+                            mapping = aes(y = mean_pop, x = ue)) +
+  geom_point() +
+  geom_smooth(method = lm, se = F) +
+  ggtitle("IPO 'Pops' and Unemployment") +
+  xlab("Unemployment (%)") + ylab("IPO 'Pop' Percentage")
+table_mean_pop_ue
+
+table_mean_pop_cpi <- ggplot(subset(final_data, cpi <= 250), 
+                            mapping = aes(y = mean_pop, x = cpi)) +
+  geom_point() +
+  geom_smooth(method = lm, se = F) +
+  ggtitle("IPO 'Pops' and Inflation (CPI)") +
+  xlab("Inflation (CPI)") + ylab("IPO 'Pop' Percentage")
+table_mean_pop_cpi
