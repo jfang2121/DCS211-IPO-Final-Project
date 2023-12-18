@@ -64,14 +64,14 @@ Make sure all libraries are installed.
 - Data: ipo_raw.xlsx (for global IPO data)
 - Open the R files in RStudio; execute the code: the files will generate the respective visualizations
 
-*Notes: You will need to change the existing file path to the local path your data file is in.*
+*Notes: You will need to change the file path(s) in the program to the local path your data file is in.*
 
 #### S&P 500 (industry) returns scraping & visualization
 - Program(s): spx.py
 - Data: no file needed
 - Open the Python file in an interpreter; execute the code: it will scrape all the S&P stock indices' monthly returns, write them into a CSV file, and create a time series plot for all of them.
 
-*Notes: You will need to change the existing file path to the local path you want the CSV file to be written into.*
+*Notes: You will need to change the file path(s) in the program to the local path you want the CSV file to be written into.*
 
 #### Regressions
 - Program(s):: 
@@ -82,4 +82,4 @@ Make sure all libraries are installed.
 3. transform the raw data into a panel dataset;
 4. run regressions and generate regression tables.
 
-*Notes: You will need to change the existing file path to the local path your data files are in.*
+*Notes: You will need to change the file path(s) in the program to the local path your data files are in.*
